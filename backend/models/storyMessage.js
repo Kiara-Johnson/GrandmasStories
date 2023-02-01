@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const storySchema = mongoose.Schema({
     name: String,
     story: String,
-    selectedFile: File,
+    selectedFile: String,
 });
 
 const StoryMessage = mongoose.model('storyMessage', storySchema);
