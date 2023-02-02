@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://mern-stories-backend.onrender.com";
+const url = "http://localhost:5000/";
 
 export const fetchStories = () => axios.get(url);
 export const createStory = (newStory) => axios.story(url, newStory);
