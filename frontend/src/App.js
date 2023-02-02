@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from "react-redux";
-import { getPosts } from "./actions/actions";
+import { getStories } from "./actions/actions";
 
 import Stories from './components/Stories'
 import Form from './components/Form'
@@ -9,12 +9,12 @@ import './index.css';
 
 export default function App() {
   const {currentId, setCurrentId} = useState(null);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getPosts());
-  // }, [dispatch]);
-console.log('hello world')
+  useEffect(() => {
+    dispatch(getStories());
+  }, [dispatch]);
+
   return (
     <div>
         <div className='flex header'>

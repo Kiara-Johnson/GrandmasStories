@@ -1,11 +1,11 @@
-const vasReducer = (vas = [], actions) => {
+const storyReducer = (story = [], actions) => {
     switch (actions.type) {
         case 'value':
             
             break;
     
         default: 
-           return vas
+           return story
     }
 }
-export default vasReducer
+export default storyReducer

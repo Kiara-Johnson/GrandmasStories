@@ -19,6 +19,7 @@ export default function Form() {
   };
 
   const clear = () => {};
+
   return (
     <div>
       <form className="flex w-full max-w-sm space-x-3">
@@ -31,12 +32,12 @@ export default function Form() {
               <div className=" relative ">
                 <input
                   type="text"
-                  id="creator-name"
+                  id="name"
                   className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                   placeholder="Name"
-                  value={storyData.creator}
+                  value={storyData.name}
                   onChange={(e) =>
-                    setStoryData({ ...storyData, creator: e.target.value })
+                    setStoryData({ ...storyData, name: e.target.value })
                   }
                 />
               </div>

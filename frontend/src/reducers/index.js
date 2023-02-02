@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import vas from "./vas"
+import story from "./story"
 
-export default combineReducers ({vas}) 
+export default combineReducers ({story}) 
