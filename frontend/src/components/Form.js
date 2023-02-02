@@ -1,24 +1,40 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import FileBase from "react-file-base64";
-import { createStory } from '../actions/actions'
+import { createStory, updateStory } from "../actions/actions";
 
-export default function Form() {
+export default function Form({ currentId, setCurrentId }) {
   const [storyData, setStoryData] = useState({
-    creator: "",
+    creatorName: "",
     story: "",
     selectedFile: "",
   });
+  const story = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefaule();
+  useEffect(() => {
+    if (story) setStoryData(story);
+  }, [story]);
 
-    dispatch(createStory(storyData));
+  const clear = () => {
+    setCurrentId(0);
+    setStoryData({ name: '', story: '', selectedFile: '' });
   };
 
-  const clear = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (currentId === 0) {
+      dispatch(createStory(storyData));
+      clear();
+    } else {
+      dispatch(updateStory(currentId, storyData));
+      clear();
+    }
+  };
+
+
 
   return (
     <div>
@@ -59,19 +75,19 @@ export default function Form() {
                 ></textarea>
               </label>
             </div>
-            <div className="col-span-2 lg:col-span-1">
+            {/* <div className="col-span-2 lg:col-span-1">
               <div className=" relative ">
                 <FileBase
                   type="file"
                   id="selectedFile"
                   className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  placeholder="image"
+                  multiple={false}
                   onDone={({ base64 }) =>
                     setStoryData({ ...storyData, selectedFile: base64 })
                   }
                 />
               </div>
-            </div>
+            </div> */}
             <div className="col-span-2 text-right">
               <button
                 type="submit"

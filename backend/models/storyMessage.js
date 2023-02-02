@@ -1,9 +1,9 @@
 import mongoose from 'mongoose'
 
 const storySchema = mongoose.Schema({
-    name: String,
+    creatorName: String,
     story: String,
-    selectedFile: String,
+    // selectedFile: String,
 });
 
 const StoryMessage = mongoose.model('storyMessage', storySchema);
