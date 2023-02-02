@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import FileBase from "react-file-base64";
+// import FileBase from "react-file-base64";
 import { createStory, updateStory } from "../actions/actions";
 
 export default function Form({ currentId, setCurrentId }) {
@@ -53,7 +53,7 @@ export default function Form({ currentId, setCurrentId }) {
                   placeholder="Name"
                   value={storyData.name}
                   onChange={(e) =>
-                    setStoryData({ ...storyData, name: e.target.value })
+                    setStoryData({ ...storyData, creatorName: e.target.value })
                   }
                 />
               </div>

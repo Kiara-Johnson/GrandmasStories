@@ -10,7 +10,7 @@ export default function Story({ story, setCurrentID }) {
     <div className="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
       {/* <a href="#" className="block w-full h-full"> */}
        <div className='@container'>
-       <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={story.selectedFile} alt="" />
+       {/* <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={story.selectedFile} alt="" /> */}
        <button onClick={() => setCurrentID(story._id)}>Edit</button>
          </div>
         <div className="w-full p-4 bg-white dark:bg-gray-800">
